@@ -7,10 +7,7 @@ const rootSchema = require('./graphql/schema');
 const rootResolver = require('./graphql/ressolver');
 
 dotenv.config({
-    path:
-        process.env.NODE_ENV === 'production'
-            ? 'production.env'
-            : 'development.env'
+    path: process.env.NODE_ENV === 'production' ? '.env' : 'development.env'
 });
 
 const app = express();

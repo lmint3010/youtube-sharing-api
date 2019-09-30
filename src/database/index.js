@@ -5,7 +5,8 @@ const mongoDefault = {
 
 module.exports = {
     mongoose: () => {
-        mongoose.connect(process.env.MONGO_URL || mongoDefault.url, {
+        const connect_url = process.env.MONGO_URL || mongoDefault.url;
+        mongoose.connect(connect_url, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
@@ -14,7 +15,7 @@ module.exports = {
             console.error.bind(console, 'connection error:')
         );
         mongoose.connection.once('open', () =>
-            console.log('Connected to MongoDB Database!')
+            console.log('Connected to MongoDB Database:\nURL:', connect_url)
         );
     }
 };

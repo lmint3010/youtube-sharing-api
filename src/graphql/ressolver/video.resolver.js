@@ -16,7 +16,7 @@ module.exports = {
     },
     getAllVideo: async () => {
         const allVideo = await mongoVideoModel.find({}).lean();
-        console.log(allVideo[0]);
+        // console.log(allVideo[0]);
         return {
             success: true,
             allVideo
